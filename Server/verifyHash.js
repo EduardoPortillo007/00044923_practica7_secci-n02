@@ -17,6 +17,13 @@ const posiblesPasswords = [
   'contraseña',
   'mipassword',
 
+  // Relacionadas a Jerry (posible usuario)
+  'jerry',
+  'jerry1',
+  'jerry123',
+  'jerry@123',
+  'Jerry123',
+
   // Por el tema del artículo: programación
   'nodejs',
   'nodejs123',
@@ -55,14 +62,14 @@ const verificar = async () => {
   for (const intento of posiblesPasswords) {
     const match = await bcrypt.compare(intento, storedHash)
     if (match) {
-      console.log(`¡Contraseña encontrada! Es: "${intento}"`)
+      console.log(`✅ ¡Contraseña encontrada! Es: "${intento}"`)
       return
     } else {
-      console.log(`No coincide: "${intento}"`)
+      console.log(`❌ No coincide: "${intento}"`)
     }
   }
 
-  console.log('Ninguna coincidió.')
+  console.log('🚫 Ninguna coincidió.')
 }
 
 verificar()
